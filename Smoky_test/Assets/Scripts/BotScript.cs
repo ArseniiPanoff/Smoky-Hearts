@@ -20,6 +20,7 @@ public class BotScript : MonoBehaviour
     public bool stopMovingR;
     public float initCoorX;
     public float initCoorY;
+    public float YY;
     private float _timer;
     private bool itHasAlreadyTurnedL = false;
     private bool itHasAlreadyTurnedR = false;
@@ -171,20 +172,27 @@ public class BotScript : MonoBehaviour
         }
         if (SaverIS)
         {
-            if (gameObject.transform.position.x < GameObject.FindWithTag("Saver").GetComponent<Saver>().level[1].Xcoor && gameObject.transform.position.x > GameObject.FindWithTag("Saver").GetComponent<Saver>().level[0].Xcoor && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
+            for (int i=0;i<15;i++)
             {
-                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20)
+                YY = i;
+                if (i % 2 != 0 && i >= 1)
                 {
-                    GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
+                    if (gameObject.transform.position.x < GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i] && gameObject.transform.position.x > GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i-1] && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
+                    {
+                        if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20)
+                        {
+                            GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
+                        }
+                    }
+                    else
+                    {
+                        if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10)
+                        {
+                            GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
+                        }
+                    }
                 }
-            }
-            else
-            {
-                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10)
-                {
-                    GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
-                }
-            }
+            }            
         }
     }
 

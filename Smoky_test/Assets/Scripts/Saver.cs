@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public struct LevelCoor
 {
     public float Xcoor;
-    public float Ycoor;
 };
 public class Saver : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class Saver : MonoBehaviour
     public bool checkPoint2;
     public float CheckCoorX;
     public float CheckCoorY;
-    public LevelCoor[] level = new LevelCoor[20];
+    public float[] level = new float[20];
     void Start()
     {
         
@@ -24,8 +23,22 @@ public class Saver : MonoBehaviour
         string sceneName = currentScene.name;
         switch(sceneName){
             case "Level1":
-                level[0].Xcoor = 62f;level[0].Ycoor = 0f;
-                level[1].Xcoor = 103f; level[1].Ycoor = -6f;
+                level[0] = 62f;
+                level[1] = 103f; 
+                level[2] = 296f; 
+                level[3] = 322f; 
+                level[4] = 590f; 
+                level[5] = 622f; 
+                level[6] = 740f; 
+                level[7] = 804f;
+                level[8] = 928f;
+                level[9] = 967f;
+                level[10] = 1254f;
+                level[11] = 1302f;
+                level[12] = 1426f;
+                level[13] = 1471f;
+                level[14] = 1595f;
+                level[15] = 1621f;
                 break;
             case "Level2":
                 break;
