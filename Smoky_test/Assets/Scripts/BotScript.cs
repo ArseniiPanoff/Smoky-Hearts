@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class BotScript : MonoBehaviour
 {
-    public int AAAAAAAAAAAAAA = 0;
     public bool canJump;
+    private bool isinside = false;
+    public float cameraSize = 0;
     public Vector3 velocity;
     private ParticleSystem _ps;
     public Animator _anim;
@@ -170,29 +171,30 @@ public class BotScript : MonoBehaviour
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorY = gameObject.transform.position.y;
             forCoor = false;
         }
+
         if (SaverIS)
         {
-            for (int i=0;i<15;i++)
+            isinside = false;
+            foreach (var i in GameObject.FindWithTag("Saver").GetComponent<Saver>().level)
             {
-                YY = i;
-                if (i % 2 != 0 && i >= 1)
+                if (gameObject.transform.position.x < i.Xcoor2 && gameObject.transform.position.x > i.Xcoor1 && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
                 {
-                    if (gameObject.transform.position.x < GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i] && gameObject.transform.position.x > GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i-1] && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
-                    {
-                        if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20)
-                        {
-                            GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
-                        }
-                    }
-                    else
-                    {
-                        if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10)
-                        {
-                            GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
-                        }
-                    }
+                    isinside = true;
                 }
-            }            
+            }
+            if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20 && isinside)
+            {
+                GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
+                cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
+            }
+            else
+            {
+                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10)
+                {
+                    GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
+                    cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
+                }
+            }
         }
     }
 

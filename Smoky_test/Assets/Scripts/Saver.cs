@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public struct LevelCoor
 {
-    public float Xcoor;
+    public float Xcoor1;
+    public float Xcoor2;
 };
 public class Saver : MonoBehaviour
 {
@@ -15,30 +14,29 @@ public class Saver : MonoBehaviour
     public bool checkPoint2;
     public float CheckCoorX;
     public float CheckCoorY;
-    public float[] level = new float[20];
+    public string sceneName;
+    public LevelCoor[] level = new LevelCoor[20];
     void Start()
     {
         
         Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
+        sceneName = currentScene.name;
         switch(sceneName){
             case "Level1":
-                level[0] = 62f;
-                level[1] = 103f; 
-                level[2] = 296f; 
-                level[3] = 322f; 
-                level[4] = 590f; 
-                level[5] = 622f; 
-                level[6] = 740f; 
-                level[7] = 804f;
-                level[8] = 928f;
-                level[9] = 967f;
-                level[10] = 1254f;
-                level[11] = 1302f;
-                level[12] = 1426f;
-                level[13] = 1471f;
-                level[14] = 1595f;
-                level[15] = 1621f;
+                level[1].Xcoor1 = 296f; 
+                level[1].Xcoor2 = 322f; 
+                level[2].Xcoor1 = 590f; 
+                level[2].Xcoor2 = 622f; 
+                level[3].Xcoor1 = 740f; 
+                level[3].Xcoor2 = 804f;
+                level[4].Xcoor1 = 928f;
+                level[4].Xcoor2 = 967f;
+                level[5].Xcoor1 = 1254f;
+                level[5].Xcoor2 = 1302f;
+                level[6].Xcoor1 = 1426f;
+                level[6].Xcoor2 = 1471f;
+                level[7].Xcoor1 = 1595f;
+                level[7].Xcoor2 = 1621f;
                 break;
             case "Level2":
                 break;

@@ -1237,7 +1237,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 5e413831905c0a77b00bd40b2627822e
+      Hash: f6ba118acd504145b48cef7da0fce229
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Saver
@@ -1501,7 +1501,7 @@ ScriptsOnlyBuild:
     className: VFXEnabledBinder
   - hash:
       serializedVersion: 2
-      Hash: fe4dca7f62e20aded0c1cd8324013551
+      Hash: 8d3eeea15a76ec03977c7a0cebe3c48c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BotScript
