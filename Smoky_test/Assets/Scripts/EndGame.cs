@@ -22,7 +22,7 @@ public class EndGame : MonoBehaviour
             }
             colider = true;
             EndGameCanvas.SetActive(true);
-        }
+        }//del this
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other);
