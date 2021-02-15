@@ -22,6 +22,8 @@ TagManager:
   - CheckCanvas
   - Enemies
   - Lift
+  - Circle
+  - FireTrap
   layers:
   - Default
   - TransparentFX

@@ -469,7 +469,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07abdc1ee477ecb568fe4a1a5428d97b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cc042b9407b1a9043a2e45bb14c9dc6b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -1936,8 +1936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dcab6c829a297d5bc5b2819c185883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AAAAAAAAAAAAAA: 0
   canJump: 0
+  cameraSize: 0
   velocity: {x: 0, y: 0, z: 0}
   _anim: {fileID: 0}
   maxSpeed: 10
@@ -1949,6 +1949,7 @@ MonoBehaviour:
   stopMovingR: 0
   initCoorX: 0
   initCoorY: 0
+  YY: 0
   In: 0
   children: []
 --- !u!95 &3229535017596771542

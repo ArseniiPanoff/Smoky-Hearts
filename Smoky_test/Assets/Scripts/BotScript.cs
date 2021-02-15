@@ -61,12 +61,12 @@ public class BotScript : MonoBehaviour
         if (Camera_to_Left)
         {
             if (GameObject.FindWithTag("MainCamera").transform.localPosition.x > -10)
-                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.5f, 0, 0);
+                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.25f, 0, 0);
         }
         else
         {
             if (GameObject.FindWithTag("MainCamera").transform.localPosition.x > -10)
-                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.5f, 0, 0);
+                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.25f, 0, 0);
         }
         // Notifiaction
         if (_timer > 5)
@@ -106,7 +106,6 @@ public class BotScript : MonoBehaviour
                     GameObject.FindWithTag("MainCamera").transform.localPosition = new Vector3(GameObject.FindWithTag("MainCamera").transform.localPosition.x * (-1f), 0, 0);
                 }
                 stopMovingR = true;
-                Camera_to_Left = true;
                 itHasAlreadyTurnedR = false;
                 source.Play();
             }
@@ -135,7 +134,6 @@ public class BotScript : MonoBehaviour
                 }
                 stopMovingL = true;
                 itHasAlreadyTurnedL = false;
-                Camera_to_Left = false;
                 source.Play();
             }
 
@@ -219,7 +217,7 @@ public class BotScript : MonoBehaviour
         }
         
         if (movingL && !Input.GetKeyDown(KeyCode.Space)) {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2f,0), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-3f,0), ForceMode2D.Impulse);
         }
         else if(stopMovingL)
         {
@@ -238,7 +236,7 @@ public class BotScript : MonoBehaviour
         
         if (movingR && !Input.GetKeyDown(KeyCode.Space))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(2f,0), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(3f,0), ForceMode2D.Impulse);
         }
         else if(stopMovingR)
         {
