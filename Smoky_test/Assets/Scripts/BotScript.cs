@@ -180,14 +180,14 @@ public class BotScript : MonoBehaviour
                     isinside = true;
                 }
             }
-            if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20 && isinside)
+            if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 30 && isinside)
             {
                 GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
                 cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
             }
             else
             {
-                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10)
+                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10 && !isinside)
                 {
                     GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
                     cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;

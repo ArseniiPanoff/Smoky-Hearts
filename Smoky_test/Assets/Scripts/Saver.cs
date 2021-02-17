@@ -25,8 +25,8 @@ public class Saver : MonoBehaviour
             case "Level1":
                 level[1].Xcoor1 = 296f; 
                 level[1].Xcoor2 = 322f; 
-                level[2].Xcoor1 = 590f; 
-                level[2].Xcoor2 = 622f; 
+                level[2].Xcoor1 = 420f; 
+                level[2].Xcoor2 = 540f; 
                 level[3].Xcoor1 = 740f; 
                 level[3].Xcoor2 = 804f;
                 level[4].Xcoor1 = 928f;
