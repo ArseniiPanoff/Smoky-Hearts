@@ -23,7 +23,7 @@ public class BotScript : MonoBehaviour
     public float initCoorY;
     public float YY;
     private float _timer;
-    private bool itHasAlreadyTurnedL = false;
+    public bool itHasAlreadyTurnedL = false;
     private bool itHasAlreadyTurnedR = false;
     public bool In;
     public SpriteRenderer[] children;
@@ -33,7 +33,6 @@ public class BotScript : MonoBehaviour
     private static readonly int IsDeath = Animator.StringToHash("IsDeath");
     private bool Camera_to_Left = false;
     private AudioSource source;
-    private bool SaverIS = true;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -47,7 +46,6 @@ public class BotScript : MonoBehaviour
         if (sceneName == "Tutorial")
         {
             forCoor = false;
-            SaverIS = false;
         }
     }
 
@@ -57,22 +55,11 @@ public class BotScript : MonoBehaviour
         gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
         velocity.x = (int) gameObject.GetComponent<Rigidbody2D>().velocity.x;
 
-        //Camera moving
-        if (Camera_to_Left)
-        {
-            if (GameObject.FindWithTag("MainCamera").transform.localPosition.x > -10)
-                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.25f, 0, 0);
-        }
-        else
-        {
-            if (GameObject.FindWithTag("MainCamera").transform.localPosition.x > -10)
-                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.25f, 0, 0);
-        }
         // Notifiaction
         if (_timer > 5)
         {
             if(gameObject.transform.childCount == 15)
-                gameObject.transform.GetChild(15).GetChild(0).GetComponent<Text>().CrossFadeAlpha(0f, 5f, true);
+                gameObject.transform.GetChild(14).GetChild(0).GetComponent<Text>().CrossFadeAlpha(0f, 5f, true);
         }
 
         //if it is the end of a game
@@ -98,12 +85,26 @@ public class BotScript : MonoBehaviour
                 gameObject.transform.GetChild(7).GetChild(0).GetComponent<Renderer>().enabled = false;
             }
 
+            if (Input.GetKey(KeyCode.E))
+            {
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("LevelArm"))
+                {
+                    g.GetComponent<LevelArmScript>().Pressed = true;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("LevelArm"))
+                {
+                    g.GetComponent<LevelArmScript>().Pressed = false;
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (!itHasAlreadyTurnedL)
                 {
                     itHasAlreadyTurnedL = true;
-                    GameObject.FindWithTag("MainCamera").transform.localPosition = new Vector3(GameObject.FindWithTag("MainCamera").transform.localPosition.x * (-1f), 0, 0);
                 }
                 stopMovingR = true;
                 itHasAlreadyTurnedR = false;
@@ -113,7 +114,7 @@ public class BotScript : MonoBehaviour
             if (Input.GetKey(KeyCode.A) && !Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.LeftArrow))
             {
                 gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
-                gameObject.transform.GetChild(15).GetChild(0).transform.localScale = new Vector3(1f, 1f, 0f);
+                gameObject.transform.GetChild(14).GetChild(0).transform.localScale = new Vector3(1f, 1f, 0f);
                 _anim.SetBool(IsMover, true);
                 movingL = true;
                 movingR = false;
@@ -130,7 +131,6 @@ public class BotScript : MonoBehaviour
                 if (!itHasAlreadyTurnedR)
                 {
                     itHasAlreadyTurnedR = true;
-                    GameObject.FindWithTag("MainCamera").transform.localPosition = new Vector3(GameObject.FindWithTag("MainCamera").transform.localPosition.x*(-1f), 0, 0);
                 }
                 stopMovingL = true;
                 itHasAlreadyTurnedL = false;
@@ -140,7 +140,7 @@ public class BotScript : MonoBehaviour
             if (Input.GetKey(KeyCode.D) && !Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.RightArrow))
             {
                 gameObject.transform.localScale = new Vector3(-1f, 1f, 0f);
-                gameObject.transform.GetChild(15).GetChild(0).transform.localScale = new Vector3(1f, 1f, 0f);
+                gameObject.transform.GetChild(14).GetChild(0).transform.localScale = new Vector3(1f, 1f, 0f);
                 _anim.SetBool(IsMover, true);
                 movingR = true;
                 movingL = false;
@@ -168,31 +168,6 @@ public class BotScript : MonoBehaviour
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorX = gameObject.transform.position.x;
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorY = gameObject.transform.position.y;
             forCoor = false;
-        }
-
-        if (SaverIS)
-        {
-            isinside = false;
-            foreach (var i in GameObject.FindWithTag("Saver").GetComponent<Saver>().level)
-            {
-                if (gameObject.transform.position.x < i.Xcoor2 && gameObject.transform.position.x > i.Xcoor1 && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
-                {
-                    isinside = true;
-                }
-            }
-            if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 30 && isinside)
-            {
-                GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize += 0.1f;
-                cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
-            }
-            else
-            {
-                if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize > 10 && !isinside)
-                {
-                    GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize -= 0.1f;
-                    cameraSize = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize;
-                }
-            }
         }
     }
 

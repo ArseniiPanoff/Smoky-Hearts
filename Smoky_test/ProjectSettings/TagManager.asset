@@ -24,6 +24,7 @@ TagManager:
   - Lift
   - Circle
   - FireTrap
+  - LevelArm
   layers:
   - Default
   - TransparentFX

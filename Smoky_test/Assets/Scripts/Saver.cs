@@ -10,6 +10,8 @@ public struct LevelCoor
 };
 public class Saver : MonoBehaviour
 {
+    public Vector2 diapazon;
+    public Vector3 PointOfView;
     public bool checkPoint1;
     public bool checkPoint2;
     public float CheckCoorX;
@@ -43,6 +45,8 @@ public class Saver : MonoBehaviour
             case "Level3":
                 break;
             case "Level4":
+                diapazon = new Vector2(123f,180f);
+                PointOfView = new Vector3(154f,18f,-40f);
                 break;
         }
         checkPoint1 = false;
