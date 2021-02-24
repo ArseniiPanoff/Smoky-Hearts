@@ -5,30 +5,18 @@ using UnityEngine;
 public class LiftScript : MonoBehaviour
 {
     public float speed = 0.00001f;
-    public float high = 20;
+    public float high = 0;
     private float posX;
     private float posY;
-    private float t;
     public bool goUp = true;
-    bool timer = true;
-    float T = 0f;
 
     void Start()
     {
         posX = gameObject.transform.position.x;
-        posY = gameObject.transform.position.y;
-        t += Time.deltaTime;
+        posY = gameObject.transform.position.y; 
     }
     private void FixedUpdate()
     {
-        if (timer)
-        {
-            T = t;
-            timer = false;
-        }
-        if ((int)t % 2 == 0)
-        //while (gameObject.transform.position.y < posY+high)
-        {
             if (gameObject.transform.position.y >= posY + high)
                 goUp = false;
             if (gameObject.transform.position.y <= posY)
@@ -37,8 +25,5 @@ public class LiftScript : MonoBehaviour
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + speed, 0);
             else if(!goUp && gameObject.transform.position.y > posY)
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - speed, 0);
-
-
-        }
     }
 }

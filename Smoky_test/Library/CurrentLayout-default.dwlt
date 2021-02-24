@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 471}
+  m_MinSize: {x: 875, y: 492}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -121,10 +121,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 730.8
-  m_MinSize: {x: 908, y: 421}
+  m_MinSize: {x: 908, y: 442}
   m_MaxSize: {x: 22003, y: 10021}
   vertical: 0
-  controlID: 1928
+  controlID: 13908
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,10 +146,10 @@ MonoBehaviour:
     y: 0
     width: 820
     height: 730.8
-  m_MinSize: {x: 201, y: 421}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 201, y: 442}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 1838
+  controlID: 13909
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -407,9 +407,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 144.72118, y: 23.563814, z: -1.1986051}
+    m_Target: {x: 91.73435, y: 76.091194, z: -38.491734}
     speed: 2
-    m_Value: {x: 146.10161, y: 23.455687, z: -1.1015811}
+    m_Value: {x: 94.64467, y: 74.262985, z: -38.092255}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -460,9 +460,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22.54288
+    m_Target: 92.71282
     speed: 2
-    m_Value: 21.572134
+    m_Value: 88.720406
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -584,9 +584,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: f8ae0c6cda8a84a4a8bb47b1cdad34f6, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: e9afc8618b47c0590bfb4d80bd0b3a0a, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -4895614860586969399, guid: f8ae0c6cda8a84a4a8bb47b1cdad34f6, type: 2}
+  - m_Target: {fileID: -1943896803021295293, guid: e9afc8618b47c0590bfb4d80bd0b3a0a, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 18444
+  m_LastSelectedObjectID: 45678
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -657,18 +657,18 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d68ffffff08fffff3692ffffa49bffffa89bffff009effff229fffffaa9fffff2cfbffffc447000004480000
+      m_ExpandedIDs: ee75ffff0876ffff4e78ffffbc81ffffc081ffff1684ffff3e85ffffc685ffffe6b7ffff00b8ffff46baffffb4c3ffffb8c3ffff0ec6ffff36c7ffffbec7ffff2cfbfffff84700001ab1000026b20000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Circle 1
-        m_OriginalName: Circle 1
+        m_Name: Lever arm
+        m_OriginalName: Lever arm
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 18444
+        m_UserData: 45342
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -719,20 +719,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/Images/\u0421\u0431\u043E\u0440\u043A\u0430"
+    - Assets/Audio
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 69
   m_LastFolders:
-  - "Assets/Images/\u0421\u0431\u043E\u0440\u043A\u0430"
+  - Assets/Audio
   m_LastFoldersGridSize: 69
   m_LastProjectPath: C:\Users\LWolf\Documents\GitHub\Smoky-Hearts\Smoky_test
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 964b0000
-    m_LastClickedID: 19350
+    m_SelectedIDs: 7a4b0000
+    m_LastClickedID: 19322
     m_ExpandedIDs: 00000000604b0000624b0000644b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

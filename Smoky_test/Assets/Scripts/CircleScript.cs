@@ -26,18 +26,18 @@ public class CircleScript : MonoBehaviour
         }
         else
         {
-            if (angleSaver < 15 && direction == "left")
+            if (angleSaver < 14.9f && direction == "left")
             {
                 angleSaver += Time.deltaTime * 10;
                 transform.Rotate(Vector3.forward * Time.deltaTime * 10);
             }
-            if (angleSaver < 15 && direction == "right")
+            if (angleSaver < 14.9f && direction == "right")
             {
                 angleSaver += Time.deltaTime * 10;
                 transform.Rotate(Vector3.back * Time.deltaTime * 10);
             }
         }
-        if (angleSaver >= 15.1f)
+        if (angleSaver >= 15f)
             angleSaver = 0f;
     }
 }

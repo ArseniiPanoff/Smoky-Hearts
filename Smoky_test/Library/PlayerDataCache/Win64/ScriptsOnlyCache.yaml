@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - Saver
     - SmokeScript
     - SoundScript
+    - Speclift
     - loadLevel
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -397,6 +398,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11852}
     - Class: 114
@@ -413,6 +416,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12882}
     - Class: 114
       Script: {instanceID: 13478}
+    - Class: 114
+      Script: {instanceID: 13514}
     - Class: 114
       Script: {instanceID: 13820}
     - Class: 114
@@ -433,6 +438,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17712}
     - Class: 114
       Script: {instanceID: 17772}
+    - Class: 114
+      Script: {instanceID: 26484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -655,6 +662,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17432}
     - Class: 114
       Script: {instanceID: 17772}
+    - Class: 114
+      Script: {instanceID: 26484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1838,6 +1847,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 29d9b554eedc832bc434853391594056
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Speclift
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

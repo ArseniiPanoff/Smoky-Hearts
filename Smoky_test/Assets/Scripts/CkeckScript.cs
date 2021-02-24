@@ -16,6 +16,14 @@ public class CkeckScript : MonoBehaviour
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorY = gameObject.transform.position.y;
             ItWasNotHere = false;
             SetAlpha(0.5f);
+            if(!GameObject.FindWithTag("Saver").GetComponent<Saver>().checkPoint1 == true)
+            {
+                GameObject.FindWithTag("Saver").GetComponent<Saver>().checkPoint1 = true;
+            }
+            else
+            {
+                GameObject.FindWithTag("Saver").GetComponent<Saver>().checkPoint2 = true;
+            }
             g = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject i in g)
             {
