@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BotScript : MonoBehaviour
 {
     public bool canJump;
-    private bool isinside = false;
     public float cameraSize = 0;
     public Vector3 velocity;
     private ParticleSystem _ps;
@@ -31,7 +30,6 @@ public class BotScript : MonoBehaviour
     private static readonly int IsTakeOff = Animator.StringToHash("IsTakeOff");
     private static readonly int IsMover = Animator.StringToHash("IsMover");
     private static readonly int IsDeath = Animator.StringToHash("IsDeath");
-    private bool Camera_to_Left = false;
     private AudioSource source;
     void Start()
     {

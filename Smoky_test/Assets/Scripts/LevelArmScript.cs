@@ -38,7 +38,15 @@ public class LevelArmScript : MonoBehaviour
             if (Pressed)
             {
                 _anim.SetBool("Left", false);
+            }
+            if (Pressed && !_anim.GetBool("Left"))
+            {
                 _anim.SetBool("Right", true);
+            }
+            else
+            {
+                _anim.SetBool("Left", false);
+                _anim.SetBool("Right", false);
             }
         }
         // Player is on the right
@@ -48,7 +56,15 @@ public class LevelArmScript : MonoBehaviour
             if (Pressed)
             {
                 _anim.SetBool("Right", false);
+            }
+            if (Pressed && !_anim.GetBool("Right"))
+            {
                 _anim.SetBool("Left", true);
+            }
+            else
+            {
+                _anim.SetBool("Left", false);
+                _anim.SetBool("Right", false);
             }
         }
         else insidethatloop = false;
