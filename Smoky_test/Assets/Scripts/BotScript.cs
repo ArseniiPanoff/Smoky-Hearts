@@ -41,7 +41,7 @@ public class BotScript : MonoBehaviour
         var main = _ps.main;
         _anim = GetComponent<Animator>();
         main.scalingMode = ParticleSystemScalingMode.Shape;
-        Scene currentScene = SceneManager.GetActiveScene();
+        Scene currentScene = SceneManager.GetActiveScene(); //
         string sceneName = currentScene.name;
         if (sceneName == "Tutorial")
         {
@@ -60,7 +60,7 @@ public class BotScript : MonoBehaviour
         if (Camera_to_Left)
         {
             if (GameObject.FindWithTag("MainCamera").transform.localPosition.x > -10)
-                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.5f, 0, 0);
+                GameObject.FindWithTag("MainCamera").transform.localPosition -= new Vector3(0.5f, 0, 0); //local position
         }
         else
         {
@@ -70,8 +70,8 @@ public class BotScript : MonoBehaviour
         // Notifiaction
         if (_timer > 5)
         {
-            if(gameObject.transform.childCount == 15)
-                gameObject.transform.GetChild(15).GetChild(0).GetComponent<Text>().CrossFadeAlpha(0f, 5f, true);
+            if(gameObject.transform.childCount == 15) //canvas=text, camera, body parts
+                gameObject.transform.GetChild(15).GetChild(0).GetComponent<Text>().CrossFadeAlpha(0f, 5f, true);//text vanishes after 5s
         }
 
         //if it is the end of a game
@@ -79,21 +79,21 @@ public class BotScript : MonoBehaviour
         {
             gameObject.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
             if (Input.GetKeyDown(KeyCode.Space) && canJump)
-            {
+            {//jump
                 canJump = false;
                 _anim.SetBool(IsJump, true);
                 Invoke(nameof(AnimateJump), 0.25f);
             }
-
+            //fly
             if (Input.GetKey(KeyCode.Space) && !_anim.GetBool(IsJump)) //take off mode
-            {
+            {              
                 flymode = true;
             }
             else
             {
                 flymode = false;
                 _anim.SetBool(IsTakeOff, false);
-                gameObject.transform.GetChild(6).GetChild(0).GetComponent<Renderer>().enabled = false;
+                gameObject.transform.GetChild(6).GetChild(0).GetComponent<Renderer>().enabled = false; //renderer feet
                 gameObject.transform.GetChild(7).GetChild(0).GetComponent<Renderer>().enabled = false;
             }
 
@@ -110,6 +110,7 @@ public class BotScript : MonoBehaviour
                 source.Play();
             }
 
+            //GetKeyDown once, then GetKey long press button
             if (Input.GetKey(KeyCode.A) && !Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.LeftArrow))
             {
                 gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
@@ -172,11 +173,11 @@ public class BotScript : MonoBehaviour
         }
         if (SaverIS)
         {
-            for (int i=0;i<15;i++)
+            for (int i=0;i<15;i++) //for all 'gaps' in floor
             {
                 YY = i;
-                if (i % 2 != 0 && i >= 1)
-                {
+                if (i % 2 != 0 && i >= 1) //odd and even numbers start end end of gap
+                {//for camera zooming in and out
                     if (gameObject.transform.position.x < GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i] && gameObject.transform.position.x > GameObject.FindWithTag("Saver").GetComponent<Saver>().level[i-1] && GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize != 20)
                     {
                         if (GameObject.FindWithTag("MainCamera").GetComponent<Camera>().orthographicSize < 20)
@@ -210,7 +211,7 @@ public class BotScript : MonoBehaviour
         if (flymode)
         {
             //flymode
-            gameObject.transform.GetChild(6).GetChild(0).GetComponent<Renderer>().enabled = true;
+            gameObject.transform.GetChild(6).GetChild(0).GetComponent<Renderer>().enabled = true; //child0 = trail
             gameObject.transform.GetChild(7).GetChild(0).GetComponent<Renderer>().enabled = true;
             _anim.SetBool(IsTakeOff, true);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1f), ForceMode2D.Impulse);
@@ -254,7 +255,7 @@ public class BotScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)//land
    {
-       if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Block") || other.gameObject.CompareTag("Wall"))
+       if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Block") || other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Balcony"))
        {
            if (!_anim.GetBool(IsJump))
            {

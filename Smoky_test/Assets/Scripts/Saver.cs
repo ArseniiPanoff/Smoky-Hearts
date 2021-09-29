@@ -23,8 +23,8 @@ public class Saver : MonoBehaviour
         string sceneName = currentScene.name;
         switch(sceneName){
             case "Level1":
-                level[0] = 62f;
-                level[1] = 103f; 
+                level[0] = 62f; //coord of gaps start
+                level[1] = 103f; //end
                 level[2] = 296f; 
                 level[3] = 322f; 
                 level[4] = 590f; 

@@ -22,6 +22,9 @@ TagManager:
   - CheckCanvas
   - Enemies
   - Lift
+  - Manhole
+  - FallingObject
+  - Balcony
   layers:
   - Default
   - TransparentFX
@@ -58,4 +61,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4191931817
     locked: 0

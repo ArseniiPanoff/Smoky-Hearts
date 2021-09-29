@@ -47,7 +47,7 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        t += Time.deltaTime;
+        t += Time.deltaTime; //time fron start of game
         var position = player.transform.position;
         positionPlayer = position;
         playerX = positionPlayer.x;

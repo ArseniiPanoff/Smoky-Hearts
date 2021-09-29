@@ -47,7 +47,8 @@ public class OmonScript : MonoBehaviour
     }
 
     void Update()
-    {
+    {//в апдейт считать команду
+        //в фиксд апдейт выполнить
         t += Time.deltaTime;
         var position = player.transform.position;
         positionPlayer = position;
@@ -61,7 +62,7 @@ public class OmonScript : MonoBehaviour
         _timer += Time.deltaTime;
         gameObject.transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
         velocity.x = (int)gameObject.GetComponent<Rigidbody2D>().velocity.x;
-        if (!iTisGG)
+        if (!iTisGG) // death or not death of main character // if MC is dead, everything stops,  if not game over
         {
             if (t - punchTimer >= 3.45f && !PunchTmerbool)
             {
@@ -70,7 +71,7 @@ public class OmonScript : MonoBehaviour
                 ArmPunch = false;
                 punchTimer = 0;
             }
-            else if (math.abs(playerX - EnemyX) < 8f && iSeeU)
+            else if (math.abs(playerX - EnemyX) < 8f && iSeeU) //punches from 8
             {
                 _anim.SetBool(IsPunch, true);
                 movingL = false;
@@ -81,17 +82,17 @@ public class OmonScript : MonoBehaviour
                 if (PunchTmerbool)
                 {
                     ArmPunch = true;
-                    _anim.SetBool(IsMover, false);
+                    _anim.SetBool(IsMover, false);//stop
                     if (playerX < EnemyX)
-                        gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
+                        gameObject.transform.localScale = new Vector3(1f, 1f, 0f);//turn
                     else
-                        gameObject.transform.localScale = new Vector3(-1f, 1f, 0f);
+                        gameObject.transform.localScale = new Vector3(-1f, 1f, 0f);//turn
                     punchTimer = t;
                     PunchTmerbool = false;
                 }
             }
-            else if (math.abs(playerX - EnemyX) < 20f && playerX < EnemyX && iSeeU && math.abs(playerY - EnemyY) < 20f && !ArmPunch)
-            {
+            else if (math.abs(playerX - EnemyX) < 20f && playerX < EnemyX && iSeeU && math.abs(playerY - EnemyY) < 20f && !ArmPunch) //Omon sees from 20
+            {//playerx <enemyx = player is on the left
                 gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
                 _anim.SetBool(IsMover, true);
                 movingL = true;
@@ -138,7 +139,7 @@ public class OmonScript : MonoBehaviour
             movingR = false;
             stopMovingR = true;
         }
-        if (forCoor)
+        if (forCoor) //coordinates at start
         {
             initCoorX = EnemyX;
             initCoorY = EnemyY;

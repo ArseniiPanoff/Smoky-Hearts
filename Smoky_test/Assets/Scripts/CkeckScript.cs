@@ -9,14 +9,14 @@ public class CkeckScript : MonoBehaviour
     public GameObject[] g;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && ItWasNotHere)
+        if (other.gameObject.CompareTag("Player") && ItWasNotHere) //Itwasnot here, so that checkpoint is used once, even if player passed it several times
         {
             colider = true;
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorX = gameObject.transform.position.x;
             GameObject.FindWithTag("Saver").GetComponent<Saver>().CheckCoorY = gameObject.transform.position.y;
             ItWasNotHere = false;
             SetAlpha(0.5f);
-            g = GameObject.FindGameObjectsWithTag("Enemy");
+            g = GameObject.FindGameObjectsWithTag("Enemy"); //remember enemy coordinates when bot crossed checkpoint
             foreach (GameObject i in g)
             {
                 i.GetComponent<EnemyScript>().initCoorX = i.transform.position.x;
@@ -29,8 +29,8 @@ public class CkeckScript : MonoBehaviour
         colider = false;
     }
     private void SetAlpha(float alpha)
-    {
-        SpriteRenderer[] children = gameObject.GetComponentsInChildren<SpriteRenderer>();
+    {// checkpoint has components, including Sprite Renderer
+        SpriteRenderer[] children = gameObject.GetComponentsInChildren<SpriteRenderer>(); //when pass checkpoint, it becomes half transparent
         foreach (SpriteRenderer child in children)
         {
             var newColor = child.color;
